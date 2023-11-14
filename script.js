@@ -1,58 +1,27 @@
-// console.log("¿active?");
-// /* const new_div = document.createElement("div");
-// const new_paragraph = document.createElement("p");
-// const new_link = document.createElement("a");
-// const new_image = document.createElementNS("img");
-//  */
-// //setting attributes
-// /*
-// new_div.setAttribute("class", "my_div");
-// new_paragraph.setAttribute("id", "my_paragraph");
-// new_link.setAttribute("href", "http://example.com");
-// new_image.setAttribute("src", "https://image-link.png");
+console.log("this is working");
+const output = document.getElementById("output");
+const form = document.getElementById("calc_form");
+const operand_btns = document.querySelectorAll("button[data-type=operand]");
 
-// //create text nodes
-// const new_div_text = document.createTextNode("Hello World");
-// const new_paragraph_text = document.createTextNode("this is a paragraph");
-// const new_link_text = document.createTextNode("Click here");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+console.log(output.value);
+console.log(form.value);
+console.log(operand_btns.values);
 
-// //append text nodes to elements
-
-// new_div.appendChild(new_div_text);
-// new_paragraph.appendChild(new_paragraph_text);
-// new_link.appendChild(new_link_text);
-
-// console.log(new_div, new_paragraph, new_link, new_image);
-//  */
-
-// /* //selecting parent element
-// const container = document.querySelector(".container");
-
-// container.appendChild(new_div);
-// container.appendChild(new_paragraph);
-// container.appendChild(new_link);
-// container.appendChild(new_image);
-//  */
-
-// /* const p_tag = document.querySelector("article p");
-
-// // modify test content using textContent
-
-// p_tag.textContent = "Override existing Content text";
-
-// // modify test using innerText
-// p_tag.innerText = "Override existing Content text";
-//  */
-// /*
-// const p_tag = document.querySelector("article p");
-// console.log(p_tag);
-// p_tag.classList.add("active"); //newtag
-// console.log(p_tag.classList.contains("active"));
-// p_tag.classList.remove("active"); //removetag
-// p_tag.classList.toggle("active"); //remove the class list if it exist or add if it doesn't */
-
-// // modify elements
-
-// // const container = document.querySelector(".container");
-// // container.style.backgroundColor = "red";
-// // console.log(container.style.backgroundColor);
+let is_operator = false;
+operand_btns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (output.value == "0") {
+      output.value = e.target.value;
+    } else if (is_operator) {
+      is_operator = false;
+      output.value = e.target.value;
+    } else if (output.value.includes(".")) {
+      output.value = output.value + "" + e.target.value.replace(".", "");
+    } else {
+      output.value = output.value + "" + e.target.value;
+    }
+  });
+});
