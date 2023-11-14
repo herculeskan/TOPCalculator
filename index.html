@@ -1,22 +1,20 @@
-<!-- starting with the html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TOPCalculator</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <title>Document</title>
   </head>
   <body>
     <main id="main">
-      <form action="" id="calc_form">
+      <form id="calc_form">
         <header class="calc_header">
           <input
             type="text"
             disabled
             id="output"
-            class="calc_input"
+            class="calc_output"
             value="0"
           />
         </header>
@@ -28,12 +26,15 @@
               value="clear"
               class="btn btn-grey"
             >
-              AC</button
-            ><button data-type="operator" value="invert" class="btn btn-grey">
-              +/-</button
-            ><button data-type="operator" value="%" class="btn btn-grey">
-              %</button
-            ><button data-type="operator" value="/" class="btn btn-grey">
+              AC
+            </button>
+            <button data-type="operator" value="invert" class="btn btn-grey">
+              +/-
+            </button>
+            <button data-type="operator" value="%" class="btn btn-grey">
+              %
+            </button>
+            <button data-type="operator" value="/" class="btn btn-orange">
               ÷
             </button>
           </div>
@@ -103,4 +104,5 @@
       </form>
     </main>
   </body>
+  <script src="script.js"></script>
 </html>
